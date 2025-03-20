@@ -28,6 +28,7 @@ public class Frog : MonoBehaviour
 
     private IEnumerator GrowFrog()
     {
+        growButton.interactable = false;
         t = 0;
        // GetComponent<SpriteRenderer>().sprite = intenseFrog;
         while(t < 1)
@@ -36,6 +37,8 @@ public class Frog : MonoBehaviour
             transform.localScale = new Vector2(10, 10) * growCurve.Evaluate(t);
             yield return null;
         }
+
+        growButton.interactable = true;
        // GetComponent<SpriteRenderer>().sprite = mehFrog;
     }
 }
