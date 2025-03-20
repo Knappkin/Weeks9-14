@@ -14,7 +14,7 @@ public class KitClock : MonoBehaviour
     public Transform hourHand;
     public Transform minuteHand;
 
-    public UnityEvent OnTheHour;
+    public UnityEvent<int> OnTheHour;
 
     Coroutine moveClockRoutine;
     IEnumerator moveOneHourRoutine;
@@ -45,12 +45,24 @@ public class KitClock : MonoBehaviour
             yield return null;
         }
 
-        OnTheHour.Invoke();
+        hour++;
+        if(hour == 13) 
+        {
+            hour = 1;
+        }
+        OnTheHour.Invoke(hour);
     }
 
     public void StopTheClock()
     {
-        StopCoroutine(moveClockRoutine);
-        StopCoroutine(moveOneHourRoutine);
+        if (moveClockRoutine != null)
+        {
+            StopCoroutine(moveClockRoutine);
+        }
+
+        if (moveClockRoutine != null)
+        {
+            StopCoroutine(moveOneHourRoutine);
+        }
     }
 }
