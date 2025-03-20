@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Frog : MonoBehaviour
 {
     public AnimationCurve growCurve;
+
+    public Button growButton;
 
     //public Sprite mehFrog;
     //public Sprite intenseFrog;
@@ -13,14 +16,14 @@ public class Frog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(GrowFrog());
+        
        // GetComponent<SpriteRenderer>().sprite = mehFrog;
     }
 
     // Update is called once per frame
-    void Update()
+    public void triggerFrogGrow()
     {
-        
+        StartCoroutine(GrowFrog());
     }
 
     private IEnumerator GrowFrog()
