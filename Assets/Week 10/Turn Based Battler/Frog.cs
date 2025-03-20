@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Frog : MonoBehaviour
 {
-    public AnimationCurve growCurve;
+    public AnimationCurve jumpCurve;
 
-    public Button growButton;
+    public Button jumpButton;
+
+    public UnityEvent<Button> SwitchAttackButtons;
 
     //public Sprite mehFrog;
     //public Sprite intenseFrog;
@@ -16,29 +19,30 @@ public class Frog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
        // GetComponent<SpriteRenderer>().sprite = mehFrog;
     }
 
     // Update is called once per frame
-    public void triggerFrogGrow()
+    public void triggerFrogJump()
     {
-        StartCoroutine(GrowFrog());
+        StartCoroutine(JumpFrog());
     }
 
-    private IEnumerator GrowFrog()
+    private IEnumerator JumpFrog()
     {
-        growButton.interactable = false;
+        Vector2 pos = transform.position;
+        jumpButton.interactable = false;
         t = 0;
        // GetComponent<SpriteRenderer>().sprite = intenseFrog;
         while(t < 1)
         {
             t += Time.deltaTime;
-            transform.localScale = new Vector2(10, 10) * growCurve.Evaluate(t);
+            pos.y = jumpCurve.Evaluate(t*2);
+            transform.position = pos;
             yield return null;
         }
 
-        growButton.interactable = true;
+        SwitchAttackButtons.Invoke(jumpButton);
        // GetComponent<SpriteRenderer>().sprite = mehFrog;
     }
 }
