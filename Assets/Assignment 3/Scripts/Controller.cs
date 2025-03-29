@@ -16,7 +16,10 @@ public class Controller : MonoBehaviour
     // Event to be called when the interact button is pressed: interactable objects subscribe to it when they are clicked and no other object is currently possessed
     public UnityEvent InteractPressed;
 
+
     public Slider wakeUpBar;
+
+    public int wakeAmount;
 
     public bool isPossessed;
     void Start()
@@ -42,7 +45,7 @@ public class Controller : MonoBehaviour
         {
             //character.SetActive(false);
             InteractPressed.Invoke();
-            wakeUpBar.value += 10;
+            wakeUpBar.value += wakeAmount;
         }
 
         if (character != null)

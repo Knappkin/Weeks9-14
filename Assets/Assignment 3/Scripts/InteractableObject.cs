@@ -15,6 +15,8 @@ public class InteractableObject : MonoBehaviour
 
     public UnityEvent<GameObject> OnClick;
 
+    public int wakeAmount;
+
    
     void Update()
     {
@@ -39,6 +41,7 @@ public class InteractableObject : MonoBehaviour
         controller.InteractPressed.AddListener(doAction);
         controller.isPossessed = true;
         controller.objectPossessed = gameObject;
+        controller.wakeAmount = wakeAmount;
     }
 
     public void leaveObject()
