@@ -22,17 +22,30 @@ public class InteractableObject : MonoBehaviour
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetMouseButtonDown(0) && GetComponent<SpriteRenderer>().bounds.Contains(mousePos))
+        if (Input.GetMouseButtonDown(0) && GetComponent<SpriteRenderer>().bounds.Contains(mousePos) && controller.isPossessed == false)
         {
-            GetComponent<SpriteRenderer>().color = Color.yellow;
+            getPossessed();
         }
+        if (Input.GetMouseButtonDown(1) && controller.isPossessed == true)
         {
-
+            leaveObject();
         }
+        
     }
 
     public void Speak()
     {
         Debug.Log(message);
+    }
+
+    public void getPossessed()
+    {
+        GetComponent<SpriteRenderer>().color = Color.yellow;
+        controller.isPossessed = true;
+    }
+
+    public void leaveObject()
+    {
+        controller.isPossessed = false;
     }
 }

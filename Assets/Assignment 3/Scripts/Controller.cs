@@ -11,14 +11,26 @@ public class Controller : MonoBehaviour
     public GameObject character;
 
     public UnityEvent sayHi;
+
+    public bool isPossessed;
     void Start()
     {
         character.SetActive(true);
+        isPossessed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (isPossessed)
+        {
+            character.SetActive(false);
+        }
+        else
+        {
+            character.SetActive(true);
+        }
        
         if (Input.GetMouseButtonDown(0))
         {
