@@ -10,14 +10,12 @@ public class InteractableObject : MonoBehaviour
 
     public Controller controller;
 
-    public UnityEvent<GameObject> OnClick;
-    // Start is called before the first frame update
-    void Start()
-    {
-        controller.sayHi.AddListener(Speak);
-    }
+    // Reference to which object to run the coroutine of (phone, keys, papers)
+    public GameObject subObject;
 
-    // Update is called once per frame
+    public UnityEvent<GameObject> OnClick;
+
+   
     void Update()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -26,26 +24,37 @@ public class InteractableObject : MonoBehaviour
         {
             getPossessed();
         }
-        if (Input.GetMouseButtonDown(1) && controller.isPossessed == true)
+        if (Input.GetMouseButtonDown(1) && controller.isPossessed == true && controller.objectPossessed == gameObject)
         {
             leaveObject();
         }
         
     }
 
-    public void Speak()
-    {
-        Debug.Log(message);
-    }
-
     public void getPossessed()
     {
-        GetComponent<SpriteRenderer>().color = Color.yellow;
+        //GetComponent<SpriteRenderer>().color = Color.yellow;
+        Debug.Log("Im still playinnnnnng");
+        GetComponent<SpriteRenderer>().color = Color.blue;
+        controller.InteractPressed.AddListener(doAction);
         controller.isPossessed = true;
+        controller.objectPossessed = gameObject;
     }
 
     public void leaveObject()
     {
+        Debug.Log("GOOOODBYEEEEEEEEE");
+        GetComponent<SpriteRenderer>().color = Color.white;
         controller.isPossessed = false;
+        controller.InteractPressed.RemoveAllListeners();
+
+        controller.objectPossessed = null;
+    }
+
+    public void doAction()
+    {
+
+        //GetComponent<SpriteRenderer>().color = Color.blue;
+        Debug.Log(message);
     }
 }

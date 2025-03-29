@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
@@ -10,7 +10,13 @@ public class Controller : MonoBehaviour
     // Character UI - follows the mouse when object not possessed
     public GameObject character;
 
-    public UnityEvent sayHi;
+    // Reference to current object that is possessed
+    public GameObject objectPossessed;
+
+    // Event to be called when the interact button is pressed: interactable objects subscribe to it when they are clicked and no other object is currently possessed
+    public UnityEvent InteractPressed;
+
+    public Slider wakeUpBar;
 
     public bool isPossessed;
     void Start()
@@ -32,10 +38,11 @@ public class Controller : MonoBehaviour
             character.SetActive(true);
         }
        
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space) && isPossessed)
         {
             //character.SetActive(false);
-            sayHi.Invoke();
+            InteractPressed.Invoke();
+            wakeUpBar.value += 10;
         }
 
         if (character != null)
