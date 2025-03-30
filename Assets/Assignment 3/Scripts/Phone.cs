@@ -7,6 +7,7 @@ public class Phone : MonoBehaviour
 
     public AnimationCurve jumpCurve;
     Vector2 startingPos;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +23,10 @@ public class Phone : MonoBehaviour
 
     private IEnumerator RingThePhone()
     {
+        int counter = 0;
         Vector2 pos = transform.position;
         float t = 0;
-        while (true)
+        while (counter < 5)
         {
 
             t += Time.deltaTime;
@@ -36,8 +38,10 @@ public class Phone : MonoBehaviour
 
             pos.y = startingPos.y + jumpCurve.Evaluate(t*1.5f);
             transform.position = pos;
+           
             yield return null;
         }
-        
+        counter++;
+
     }
 }

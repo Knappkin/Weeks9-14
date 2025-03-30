@@ -15,6 +15,8 @@ public class InteractableObject : MonoBehaviour
 
     public UnityEvent<GameObject> OnClick;
 
+    public float cooldown;
+
     public int wakeAmount;
 
    

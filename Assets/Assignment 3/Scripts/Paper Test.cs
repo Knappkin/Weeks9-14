@@ -6,6 +6,8 @@ public class PaperTest : MonoBehaviour
 {
 
     public AnimationCurve fallCurve;
+    public AnimationCurve curve2;
+    
     // Start is called before the first frame update
     float t;
     void Start()
@@ -17,7 +19,7 @@ public class PaperTest : MonoBehaviour
     void Update()
     {
   
-        t += Time.deltaTime;
+        t += Time.deltaTime*0.5f;
 
         if (t > 1)
         {
@@ -28,9 +30,15 @@ public class PaperTest : MonoBehaviour
 
         Vector2 pos = transform.position;
 
+
         // pos.x -= Random.Range(0, 0.1f);
-       // pos.x = Mathf.Lerp(2,-2,fallCurve.Evaluate(t));
-        pos.y -= Mathf.Lerp(-0.01f,0.02f,fallCurve.Evaluate(t));
+        //pos.x = Mathf.Lerp(3,-3,fallCurve.Evaluate(t)*0.5f);
+        //pos.y -= 0.02f;
+        pos.y -= fallCurve.Evaluate(t)*0.08f;
+        pos.x -= curve2.Evaluate(t) * 0.06f;
+
+        //Debug.Log(t);
+     
         //transform.position = mousePos;
         transform.position = pos;
     }
