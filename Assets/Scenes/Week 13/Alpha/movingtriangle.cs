@@ -20,7 +20,9 @@ public class movingtriangle : MonoBehaviour
         Vector2 direction = mouse - transform.position;
 
         transform.up = direction;
-       
+
+        Vector2 pos = transform.position;
+        transform.position = Vector2.MoveTowards(transform.position, mouse, 0.01f);
         
     }
 }
