@@ -22,7 +22,11 @@ public class InteractableObject : MonoBehaviour
 
     public int wakeAmount;
 
-   
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().sprite = neutralSprite;
+    }
+
     void Update()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -42,11 +46,12 @@ public class InteractableObject : MonoBehaviour
     {
         //GetComponent<SpriteRenderer>().color = Color.yellow;
         Debug.Log("Im still playinnnnnng");
-        GetComponent<SpriteRenderer>().color = Color.blue;
+        //GetComponent<SpriteRenderer>().color = Color.blue;
         controller.InteractPressed.AddListener(doAction);
         controller.isPossessed = true;
         controller.objectPossessed = gameObject;
         controller.wakeAmount = wakeAmount;
+        GetComponent<SpriteRenderer>().sprite = possessedSprite;
     }
 
     public void leaveObject()
@@ -57,6 +62,7 @@ public class InteractableObject : MonoBehaviour
         controller.InteractPressed.RemoveAllListeners();
 
         controller.objectPossessed = null;
+        GetComponent<SpriteRenderer>().sprite = neutralSprite;
     }
 
     public void doAction()
