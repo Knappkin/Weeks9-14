@@ -10,8 +10,10 @@ public class InteractableObject : MonoBehaviour
 
     public Controller controller;
 
+
     // Reference to which object to run the coroutine of (phone, keys, papers)
-    public GameObject subObject;
+    public Sprite neutralSprite;
+    public Sprite possessedSprite;
 
     public UnityEvent<GameObject> OnClick;
     public UnityEvent DoInteraction;
