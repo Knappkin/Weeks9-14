@@ -6,13 +6,15 @@ public class Phone : MonoBehaviour
 {
 
     public AnimationCurve jumpCurve;
+    public GameObject parentObject;
     Vector2 startingPos;
    
     // Start is called before the first frame update
     void Start()
     {
         startingPos = transform.position;
-        StartCoroutine(RingThePhone());
+        //StartCoroutine(RingThePhone());
+        parentObject.GetComponent<InteractableObject>().DoInteraction.AddListener(StartInteraction);
     }
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class Phone : MonoBehaviour
 
     public void StartInteraction()
     {
-
+        StartCoroutine(RingThePhone());
     }
     private IEnumerator RingThePhone()
     {

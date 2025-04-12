@@ -14,6 +14,7 @@ public class InteractableObject : MonoBehaviour
     public GameObject subObject;
 
     public UnityEvent<GameObject> OnClick;
+    public UnityEvent DoInteraction;
 
     public float cooldown;
 
@@ -58,6 +59,7 @@ public class InteractableObject : MonoBehaviour
 
     public void doAction()
     {
+        DoInteraction.Invoke();
         //GetComponent<SpriteRenderer>().color = Color.blue;
         Debug.Log(message);
     }
