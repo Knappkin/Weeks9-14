@@ -8,6 +8,7 @@ public class Keys : MonoBehaviour
     public GameObject parentObject;
     public GameObject[] keys;
     public GameObject selectedKey;
+    public AnimationCurve curve;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,16 +19,29 @@ public class Keys : MonoBehaviour
     public void StartInteraction()
     {
         selectedKey = keys[Random.Range((int)0, keys.Length)];
-        StartCoroutine(ClickAKey());
+        StartCoroutine(ClickAKey(selectedKey));
     }
 
-    private IEnumerator ClickAKey()
+    public IEnumerator ClickAKey(GameObject keyClicked)
     {
-        while (true)
+        float t = 0;
+        //Color keyColour = new Color();
+        while (t<1)
         {
-            selectedKey.GetComponent<SpriteRenderer>().color = Color.red;
+            
+            Color startColour = Color.white;
+            //Color endColour = new Color(70,70,70,1);
+            Color endColour = Color.green;
+            t += Time.deltaTime;
+            //Color keyColour = new Color(Mathf.Lerp(255,70, curve.Evaluate(t)), Mathf.Lerp(255, 70, curve.Evaluate(t)), Mathf.Lerp(255, 70, curve.Evaluate(t)));
+           // Color keyColour = new Color(curve.Evaluate(t)*10, curve.Evaluate(t) * 10, curve.Evaluate(t) * 10);
+            keyClicked.GetComponent<SpriteRenderer>().color = Color.Lerp(startColour,endColour,curve.Evaluate(t));
+           
+            //keyClicked.transform.localScale = Vector3.one * curve.Evaluate(t);
+            Debug.Log(t);
             yield return null;
         }
-        
+        //selectedKey.GetComponent<SpriteRenderer>().color = Color.white;
+
     }
 }

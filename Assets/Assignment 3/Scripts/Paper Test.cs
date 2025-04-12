@@ -26,7 +26,7 @@ public class PaperTest : MonoBehaviour
             t = 0;
         }
 
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
 
         Vector2 pos = transform.position;
 

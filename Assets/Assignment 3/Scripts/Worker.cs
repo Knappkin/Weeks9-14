@@ -28,7 +28,6 @@ public class Worker : MonoBehaviour
         isAwake = false;
         fallAsleep();
 
-       
 
         Debug.Log(baseScale);
 

@@ -3232,6 +3232,75 @@ MonoBehaviour:
   - {fileID: 645618756}
   - {fileID: 25203044}
   selectedKey: {fileID: 0}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.053881407
+      value: 0.018818103
+      inSlope: 0.58927935
+      outSlope: 0.58927935
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.30648196
+    - serializedVersion: 3
+      time: 0.14410251
+      value: 0.93899417
+      inSlope: 0.8093359
+      outSlope: 0.8093359
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2886996
+      outWeight: 0.21492997
+    - serializedVersion: 3
+      time: 0.43701392
+      value: 1.0037761
+      inSlope: -0.032415796
+      outSlope: -0.032415796
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3955595
+    - serializedVersion: 3
+      time: 0.6410661
+      value: 0.6637943
+      inSlope: -2.853537
+      outSlope: -2.853537
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.3251149
+      outWeight: 0.25308388
+    - serializedVersion: 3
+      time: 0.8302997
+      value: 0.056125928
+      inSlope: -1.1949466
+      outSlope: -1.1949466
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.31544662
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1555002931
 GameObject:
   m_ObjectHideFlags: 0
