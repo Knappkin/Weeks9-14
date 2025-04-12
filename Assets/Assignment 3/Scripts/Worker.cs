@@ -6,13 +6,18 @@ using UnityEngine.UI;
 public class Worker : MonoBehaviour
 {
 
+    //bool to check if worker is awake
     private bool isAwake;
+    //Curve for controlling the snoring animation of the worker when asleep
     public AnimationCurve sleepCurve;
+    //Slider that represents worker's level of awakeness. When bar reaches full, triggers WakeUp() function
     public Slider wakeUpBar;
 
+    //Sprites of the sleeping or awake symbols
     public Sprite sleepIMG;
     public Sprite awakeIMG;
 
+    //Actual ui image, it displays whichever symbol sprite is needed
     public Image statusUI;
 
     Vector2 baseScale;

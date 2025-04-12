@@ -21,6 +21,10 @@ public class Phone : MonoBehaviour
         
     }
 
+    public void StartInteraction()
+    {
+
+    }
     private IEnumerator RingThePhone()
     {
         int counter = 0;
@@ -34,14 +38,13 @@ public class Phone : MonoBehaviour
             if (t > 1)
             {
                 t = 0;
+                counter++;
             }
 
             pos.y = startingPos.y + jumpCurve.Evaluate(t*1.5f);
             transform.position = pos;
-           
             yield return null;
         }
-        counter++;
 
     }
 }

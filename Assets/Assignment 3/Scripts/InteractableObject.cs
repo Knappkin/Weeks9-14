@@ -58,7 +58,6 @@ public class InteractableObject : MonoBehaviour
 
     public void doAction()
     {
-
         //GetComponent<SpriteRenderer>().color = Color.blue;
         Debug.Log(message);
     }
