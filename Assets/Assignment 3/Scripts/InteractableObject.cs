@@ -50,7 +50,6 @@ public class InteractableObject : MonoBehaviour
         controller.InteractPressed.AddListener(doAction);
         controller.isPossessed = true;
         controller.objectPossessed = gameObject;
-        controller.wakeAmount = wakeAmount;
         GetComponent<SpriteRenderer>().sprite = possessedSprite;
     }
 

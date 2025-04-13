@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class PaperSheet : MonoBehaviour
@@ -10,6 +11,8 @@ public class PaperSheet : MonoBehaviour
     public AnimationCurve curve2;
     public GameObject parentObject;
     public GameObject paperPrefab;
+
+    public Slider wakeUpBar;
     
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,7 @@ public class PaperSheet : MonoBehaviour
     public IEnumerator PrintPaper(GameObject prefab)
     {
         parentObject.GetComponent<InteractableObject>().DoInteraction.RemoveListener(StartInteraction);
+        wakeUpBar.value += parentObject.GetComponent<InteractableObject>().wakeAmount;
         float t = 0;
         bool canRelisten = true;
         Vector2 pos = transform.position;

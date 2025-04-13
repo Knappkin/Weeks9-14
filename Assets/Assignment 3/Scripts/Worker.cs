@@ -23,6 +23,7 @@ public class Worker : MonoBehaviour
     //Actual ui image, it displays whichever symbol sprite is needed
     public GameObject statusImage;
 
+    public Controller controller;
     Vector2 baseScale;
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class Worker : MonoBehaviour
 
     public void fallAsleep()
     {
+        controller.canInteract = true;
         wakeUpBar.value = 0;
         statusImage.GetComponent<SpriteRenderer>().sprite = sleepIMG;
         StartCoroutine(SleepingRoutine());
@@ -55,6 +57,7 @@ public class Worker : MonoBehaviour
 
     public void WakeUp()
     {
+        controller.canInteract = false;
         statusImage.GetComponent<SpriteRenderer>().sprite = awakeIMG;
         StopAllCoroutines();
         StartCoroutine(WakeLookAround());

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.UI;
 
 public class Keys : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Keys : MonoBehaviour
     public GameObject[] keys;
     public GameObject selectedKey;
     public AnimationCurve curve;
+
+    public Slider wakeUpBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,7 @@ public class Keys : MonoBehaviour
     public IEnumerator ClickAKey(GameObject keyClicked)
     {
         float t = 0;
+        wakeUpBar.value += parentObject.GetComponent<InteractableObject>().wakeAmount;
         //Color keyColour = new Color();
         while (t<1)
         {

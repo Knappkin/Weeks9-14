@@ -1022,6 +1022,8 @@ MonoBehaviour:
   wakeUpBar: {fileID: 440748616}
   wakeAmount: 0
   isPossessed: 0
+  canAdd: 0
+  worker: {fileID: 1103503735}
 --- !u!1 &390986375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,7 +1581,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   cooldown: 0.2
-  wakeAmount: 2
+  wakeAmount: 3
 --- !u!1 &553583513
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,40 +2541,40 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 3.3333333
-      outSlope: 3.3333333
-      tangentMode: 34
+      time: 0.015041351
+      value: 0.41256714
+      inSlope: -0.10715331
+      outSlope: -0.10715331
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0.43735385
     - serializedVersion: 3
-      time: 0.15
-      value: 0.5
-      inSlope: 0.95238096
-      outSlope: 0.95238096
-      tangentMode: 34
+      time: 0.2774624
+      value: 0.22807969
+      inSlope: 0.71228987
+      outSlope: 0.71228987
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.85
-      value: -0.5
-      inSlope: 0.9523813
-      outSlope: 0.9523813
-      tangentMode: 34
+      time: 0.59208894
+      value: 0.8494078
+      inSlope: -0.0013450744
+      outSlope: -0.0013450744
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.1334167
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 3.333334
-      outSlope: 3.333334
-      tangentMode: 34
+      time: 0.8967402
+      value: 0.5355835
+      inSlope: 0.13741411
+      outSlope: 0.13741411
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.2801093
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -2581,6 +2583,7 @@ MonoBehaviour:
   sleepIMG: {fileID: 21300000, guid: e09b4ea093413ac4f9463d2ee30cac8a, type: 3}
   awakeIMG: {fileID: 21300000, guid: 786f2452916d0704694a38f501a18ff5, type: 3}
   statusImage: {fileID: 1972109571}
+  controller: {fileID: 386135964}
 --- !u!1 &1141444665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3016,7 +3019,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   cooldown: 5
-  wakeAmount: 10
+  wakeAmount: 20
 --- !u!1 &1251951993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3332,6 +3335,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  wakeUpBar: {fileID: 440748616}
 --- !u!1 &1529457123
 GameObject:
   m_ObjectHideFlags: 0
@@ -3471,6 +3475,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   parentObject: {fileID: 1151830040}
   paperPrefab: {fileID: 1361434099558188585, guid: d844b6a0c26a95b418df1519bfdd50a8, type: 3}
+  wakeUpBar: {fileID: 440748616}
 --- !u!1 &1555002931
 GameObject:
   m_ObjectHideFlags: 0
@@ -4337,7 +4342,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: e09b4ea093413ac4f9463d2ee30cac8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4900,6 +4905,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   parentObject: {fileID: 1243013728}
+  wakeUpBar: {fileID: 440748616}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

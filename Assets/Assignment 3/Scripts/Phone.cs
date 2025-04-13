@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Phone : MonoBehaviour
 {
 
     public AnimationCurve jumpCurve;
     public GameObject parentObject;
+
+    public Slider wakeUpBar;
+
     Vector2 startingPos;
    
     // Start is called before the first frame update
@@ -17,11 +21,6 @@ public class Phone : MonoBehaviour
         parentObject.GetComponent<InteractableObject>().DoInteraction.AddListener(StartInteraction);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void StartInteraction()
     {
@@ -30,6 +29,7 @@ public class Phone : MonoBehaviour
     private IEnumerator RingThePhone()
     {
         parentObject.GetComponent<InteractableObject>().DoInteraction.RemoveListener(StartInteraction);
+      
         int counter = 0;
         Vector2 pos = transform.position;
         float t = 0;
@@ -43,6 +43,7 @@ public class Phone : MonoBehaviour
             {
                 t = 0;
                 counter++;
+                wakeUpBar.value += parentObject.GetComponent<InteractableObject>().wakeAmount;
             }
 
             pos.y = startingPos.y + jumpCurve.Evaluate(t*1.5f);
