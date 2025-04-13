@@ -22,6 +22,7 @@ public class Controller : MonoBehaviour
     public int wakeAmount;
 
     public bool isPossessed;
+    public bool canAdd;
     void Start()
     {
         character.SetActive(true);

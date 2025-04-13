@@ -26,19 +26,21 @@ public class PaperSheet : MonoBehaviour
 
     public IEnumerator PrintPaper(GameObject prefab)
     {
+        parentObject.GetComponent<InteractableObject>().DoInteraction.RemoveListener(StartInteraction);
         float t = 0;
+        bool canRelisten = true;
         Vector2 pos = transform.position;
 
-        while (true)
+        while (t < 1)
         {
 
             t += Time.deltaTime * 0.5f;
 
-            if (t > 1)
+            if (t> 0.5f && canRelisten)
             {
-                t = 0;
+                parentObject.GetComponent<InteractableObject>().DoInteraction.AddListener(StartInteraction);
+                canRelisten = false;
             }
-
            // pos.x -= Random.Range(0, 0.1f);
             //pos.x = Mathf.Lerp(3,-3,fallCurve.Evaluate(t)*0.5f);
             //pos.y -= 0.02f;
@@ -48,6 +50,7 @@ public class PaperSheet : MonoBehaviour
             prefab.transform.position = pos;
             yield return null;
         }
+        Destroy(prefab);
     }
 
 

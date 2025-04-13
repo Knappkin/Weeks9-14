@@ -29,9 +29,11 @@ public class Phone : MonoBehaviour
     }
     private IEnumerator RingThePhone()
     {
+        parentObject.GetComponent<InteractableObject>().DoInteraction.RemoveListener(StartInteraction);
         int counter = 0;
         Vector2 pos = transform.position;
         float t = 0;
+        Debug.Log("I LISTENED");
         while (counter < 5)
         {
 
@@ -48,5 +50,6 @@ public class Phone : MonoBehaviour
             yield return null;
         }
 
+        parentObject.GetComponent<InteractableObject>().DoInteraction.AddListener(StartInteraction);
     }
 }

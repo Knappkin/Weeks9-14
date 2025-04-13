@@ -28,7 +28,7 @@ public class Keys : MonoBehaviour
         //Color keyColour = new Color();
         while (t<1)
         {
-            
+      
             Color startColour = Color.white;
             //Color endColour = new Color(70,70,70,1);
             Color endColour = Color.grey;

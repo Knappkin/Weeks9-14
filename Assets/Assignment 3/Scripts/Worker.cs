@@ -8,8 +8,11 @@ public class Worker : MonoBehaviour
 
     //bool to check if worker is awake
     private bool isAwake;
+    private bool canWake;
     //Curve for controlling the snoring animation of the worker when asleep
     public AnimationCurve sleepCurve;
+
+    public AnimationCurve awakeCurve;
     //Slider that represents worker's level of awakeness. When bar reaches full, triggers WakeUp() function
     public Slider wakeUpBar;
 
@@ -18,7 +21,7 @@ public class Worker : MonoBehaviour
     public Sprite awakeIMG;
 
     //Actual ui image, it displays whichever symbol sprite is needed
-    public Image statusUI;
+    public GameObject statusImage;
 
     Vector2 baseScale;
     // Start is called before the first frame update
@@ -26,30 +29,47 @@ public class Worker : MonoBehaviour
     {
         baseScale = transform.localScale;
         isAwake = false;
+        canWake = true;
         fallAsleep();
 
-
-        Debug.Log(baseScale);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(wakeUpBar.value >= 100)
+        if (wakeUpBar.value >= 100 && canWake == true)
         {
             WakeUp();
+            canWake = false;
         }
     }
+
+    public void fallAsleep()
+    {
+        wakeUpBar.value = 0;
+        statusImage.GetComponent<SpriteRenderer>().sprite = sleepIMG;
+        StartCoroutine(SleepingRoutine());
+        canWake = true;
+    }
+
+    public void WakeUp()
+    {
+        statusImage.GetComponent<SpriteRenderer>().sprite = awakeIMG;
+        StopAllCoroutines();
+        StartCoroutine(WakeLookAround());
+        Debug.Log("this is getting called");
+    }
+
     private IEnumerator SleepingRoutine()
     {
         float t = 0;
 
-        while(!isAwake)
+        while (!isAwake)
         {
 
-            t+= Time.deltaTime * 0.5f;
-           
+            t += Time.deltaTime * 0.5f;
+
             if (t > 1)
             {
                 t = 0;
@@ -59,19 +79,28 @@ public class Worker : MonoBehaviour
 
             yield return null;
         }
-        
-    }
-    public void fallAsleep()
-    {
-        statusUI.sprite = sleepIMG;
-        StartCoroutine(SleepingRoutine());
+
     }
 
-    public void WakeUp()
+    private IEnumerator WakeLookAround()
     {
-        statusUI.sprite = awakeIMG;
-        StopAllCoroutines();
-        Debug.Log("this is getting called");
+        float t = 0;
+        float counter = 0;
+        Vector3 rot = transform.localEulerAngles;
+        while (counter < 5)
+        {
+            t += Time.deltaTime *0.5f;
+            
+            if (t > 1)
+            {
+                t = 0;
+            }
+
+            rot.y = Mathf.Lerp(80, -80, awakeCurve.Evaluate(t));
+            transform.localEulerAngles = rot;
+            counter += Time.deltaTime*0.5f;
+            yield return null;
+        }
+        fallAsleep();
     }
-   // IEnumerator
 }
