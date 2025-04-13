@@ -31,7 +31,7 @@ public class Keys : MonoBehaviour
             
             Color startColour = Color.white;
             //Color endColour = new Color(70,70,70,1);
-            Color endColour = Color.green;
+            Color endColour = Color.grey;
             t += Time.deltaTime;
             //Color keyColour = new Color(Mathf.Lerp(255,70, curve.Evaluate(t)), Mathf.Lerp(255, 70, curve.Evaluate(t)), Mathf.Lerp(255, 70, curve.Evaluate(t)));
            // Color keyColour = new Color(curve.Evaluate(t)*10, curve.Evaluate(t) * 10, curve.Evaluate(t) * 10);
