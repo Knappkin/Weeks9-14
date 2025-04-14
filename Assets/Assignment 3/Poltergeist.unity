@@ -1019,11 +1019,8 @@ MonoBehaviour:
   InteractPressed:
     m_PersistentCalls:
       m_Calls: []
-  wakeUpBar: {fileID: 440748616}
-  wakeAmount: 0
   isPossessed: 0
-  canAdd: 0
-  worker: {fileID: 1103503735}
+  canInteract: 0
 --- !u!1 &390986375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1578,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   cooldown: 0.2
-  wakeAmount: 3
+  wakeAmount: 2
 --- !u!1 &553583513
 GameObject:
   m_ObjectHideFlags: 0
@@ -3019,7 +3016,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   cooldown: 5
-  wakeAmount: 20
+  wakeAmount: 4
 --- !u!1 &1251951993
 GameObject:
   m_ObjectHideFlags: 0
